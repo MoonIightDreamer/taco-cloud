@@ -13,11 +13,7 @@ import tacos.TacoOrder;
 import tacos.data.IngredientRepository;
 
 import javax.validation.Valid;
-import java.util.List;
 import java.util.stream.StreamSupport;
-
-import static java.util.Arrays.asList;
-import static tacos.Ingredient.Type.*;
 
 @Slf4j
 @Controller
