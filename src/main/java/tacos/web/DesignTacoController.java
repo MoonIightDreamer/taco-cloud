@@ -10,7 +10,6 @@ import tacos.Ingredient;
 import tacos.Ingredient.Type;
 import tacos.Taco;
 import tacos.TacoOrder;
-import tacos.TacoUDT;
 import tacos.data.IngredientRepository;
 
 import javax.validation.Valid;
@@ -62,7 +61,7 @@ public class DesignTacoController {
     }
 
     @PostMapping
-    public String processTaco(@Valid TacoUDT taco,
+    public String processTaco(@Valid Taco taco,
                               Errors errors,
                               @ModelAttribute TacoOrder tacoOrder) {
         if(errors.hasErrors()) {
