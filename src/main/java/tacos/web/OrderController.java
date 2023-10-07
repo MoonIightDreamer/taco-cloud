@@ -14,6 +14,8 @@ import tacos.data.OrderRepository;
 
 import javax.validation.Valid;
 
+import static tacos.security.SecurityContext.getUser;
+
 @Slf4j
 @Controller
 @RequestMapping("/orders")
@@ -37,8 +39,10 @@ public class OrderController {
                                Errors errors,
                                SessionStatus sessionStatus) {
         if(errors.hasErrors()) {
+            log.error(errors.getAllErrors().toString());
             return "orderForm";
         }
+        order.setUser(getUser());
         log.info("Order submitted: {}", order);
         orderRepository.save(order);
         sessionStatus.setComplete();

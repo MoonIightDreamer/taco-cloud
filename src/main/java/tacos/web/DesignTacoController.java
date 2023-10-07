@@ -15,6 +15,8 @@ import tacos.data.IngredientRepository;
 import javax.validation.Valid;
 import java.util.stream.StreamSupport;
 
+import static tacos.security.SecurityContext.getUser;
+
 @Slf4j
 @Controller
 @RequestMapping("/design")
@@ -57,6 +59,7 @@ public class DesignTacoController {
 
     @GetMapping
     public String showDesignForm() {
+        log.info("current user: " + getUser().getUsername());
         return "design";
     }
 
@@ -64,6 +67,7 @@ public class DesignTacoController {
     public String processTaco(@Valid Taco taco,
                               Errors errors,
                               @ModelAttribute TacoOrder tacoOrder) {
+        log.info("current user: " + getUser().getUsername());
         if(errors.hasErrors()) {
             return "design";
         }

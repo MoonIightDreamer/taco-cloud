@@ -9,6 +9,7 @@ create table if not exists taco_order
     cc_number       varchar(16) not null,
     cc_expiration   varchar(5)  not null,
     cc_cvv          varchar(3)  not null,
+    user_id         bigint      not null,
     placed_at       timestamp   not null
 );
 
@@ -32,6 +33,17 @@ create table if not exists ingredient
     id   varchar(4)  not null unique,
     name varchar(25) not null,
     type varchar(10) not null
+);
+create table if not exists user_acc (
+    id bigint not null primary key,
+    city varchar(255),
+    full_name varchar(255),
+    password varchar(255),
+    phone_number varchar(255),
+    state varchar(255),
+    street varchar(255),
+    username varchar(255),
+    zip varchar(255)
 );
 alter table taco
     add foreign key (taco_order) references taco_order (id);
