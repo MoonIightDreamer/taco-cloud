@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/taco_cloud
+    username: postgres
+    password: password
+    driver-class-name: org.postgresql.Driver
+  security:
+    user:
+      name: user
+      password: 123
+
+server:
+  port: 8443
+
+taco:
+  orders:
+    page-size: 10

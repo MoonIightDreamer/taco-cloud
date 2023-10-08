@@ -3,15 +3,30 @@ package tacos.config;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 import tacos.Ingredient;
 import tacos.Ingredient.Type;
+import tacos.User;
 import tacos.data.IngredientRepository;
+import tacos.data.UserRepository;
 
 @Configuration
+@Profile("!prod")
 public class DatabaseInitializer {
 
     @Bean
-    public CommandLineRunner dataLoader(IngredientRepository repo) {
+    public CommandLineRunner userLoader(UserRepository repo) {
+        return args -> {
+            repo.deleteAll();
+            repo.save(new User("user", "123",
+                    null, null, null, null, null, null));
+            repo.save(new User("user2", "123",
+                            null, null, null, null, null, null));
+        };
+    }
+
+    @Bean
+    public CommandLineRunner ingredientLoader(IngredientRepository repo) {
         return args -> {
             repo.deleteAll();
             repo.save(new Ingredient("FLTO", "Flour Tortilla", Type.WRAP));

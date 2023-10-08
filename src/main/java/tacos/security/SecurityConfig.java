@@ -41,9 +41,9 @@ public class SecurityConfig {
                 .logout()
                 .logoutSuccessUrl("/login")
 
-//                .and()
-//                .csrf()
-//                .ignoringAntMatchers("/h2-console/**")
+                .and()
+                .csrf()
+                .ignoringAntMatchers("/h2-console/**")
 
                 .and()
                 .build();

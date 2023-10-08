@@ -4,3 +4,30 @@ spring:
   datasource:
     generate-unique-name: false
     name: taco_cloud
+  security:
+    user:
+      name: user
+      password: 123
+server:
+  port: 8443
+#  ssl:
+#    key-store: classpath:mykeys.jks
+#    key-store-password: letmein
+#    key-password: letmein
+
+taco:
+  orders:
+    page-size: 10
+#
+#logging:
+#  file:
+#    path: /var/logs/
+#    name: TacoCloud.log
+#  level:
+#    root: warn
+#    org:
+#      springframework:
+#        security: debug
+#
+#greeting:
+#  welcome: hello
