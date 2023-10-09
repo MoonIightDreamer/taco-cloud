@@ -4,6 +4,10 @@ spring:
   datasource:
     generate-unique-name: false
     name: taco_cloud
+  data:
+    rest:
+      base-path: /data-api
+
   security:
     user:
       name: user
@@ -29,5 +33,3 @@ taco:
 #      springframework:
 #        security: debug
 #
-#greeting:
-#  welcome: hello
